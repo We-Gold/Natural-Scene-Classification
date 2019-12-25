@@ -15,6 +15,7 @@ base_model = MobileNet(weights = 'imagenet',include_top = False)
 x = base_model.output
 x = GlobalAveragePooling2D()(x)
 x = Dense(512,activation = 'relu')(x) 
+x = Dense(512,activation = 'relu')(x)
 x = Dense(256,activation = 'relu')(x)
 preds = Dense(6,activation = 'softmax')(x)
 
@@ -36,7 +37,7 @@ total_test = count_images(os.path.join(os.getcwd(),"data/test"))
 
 model.fit_generator(train_generator,
                         steps_per_epoch=math.floor(total_train/128),
-                        epochs=5,
+                        epochs=128,
                         validation_data=validation_generator,
                         validation_steps=math.floor(total_test/128),
                         callbacks = [checkpoints])
