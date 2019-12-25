@@ -35,25 +35,6 @@ def count_images(directory):
     return total
 
 # Testing machine learning model
-"""
-def evaluate_multiclass_model(path_to_model,path_to_testing_data,target_image_size):
-    model = load_model(path_to_model)
-
-    total_correct = 0
-    total_incorrect = 0
-
-    for i in range(count_images(path_to_testing_data)):
-        classes = os.listdir(path_to_testing_data)
-        choice = random.randint(0,len(classes)-1)
-        images = os.path.join(path_to_testing_data,classes[choice])
-        image = os.listdir(images)[random.randint(0,len(images)-1)]
-        image_path = os.path.join(images,image)
-        if(classes[np.argmax(model.predict(image_to_tensor(image_path,target_image_size)))] == classes[choice]):
-            total_correct+=1
-        else:
-            total_incorrect+=1
-    return total_correct/(total_incorrect+total_correct)
-"""
 def evaluate_multiclass_model(path_to_model,path_to_testing_data,target_image_size):
     model = load_model(path_to_model)
 
